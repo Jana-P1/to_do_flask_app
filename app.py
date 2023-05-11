@@ -1,13 +1,5 @@
-from flask import Flask, render_template
-
-app = Flask(__name__)
-
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-
+from myapplication import app
 
 if __name__ == '__main__':
-    print("app is running")
-    app.run(debug=True)
+    print('app is running')
+    app.run()
