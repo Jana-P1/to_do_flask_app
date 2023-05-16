@@ -1,6 +1,9 @@
 
 from flask import Flask, render_template
 import os
+from . import db
+from myapplication.db import db_session, init_db
+
 
 def create_app(test_config=None):
     # create and configure the app
@@ -9,6 +12,12 @@ def create_app(test_config=None):
         SECRET_KEY=os.getenv('APP_SECRET'),
         DATABASE=os.path.join(app.instance_path, 'myapplication.sqlite'),
     )
+    # Removes database sessions at the end of a request or when the application shuts down
+    @app.teardown_appcontext
+    def shutdown_session(exception=None):
+        db_session.remove()
+    
+    init_db()
 
     if test_config is None:
         # load the instance config, if it exists, when not testing
@@ -28,4 +37,7 @@ def create_app(test_config=None):
     def index():
         return render_template('index.html')
     
+
+   
     return app
+

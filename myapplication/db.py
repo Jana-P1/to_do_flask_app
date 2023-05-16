@@ -3,7 +3,7 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 import sqlite3, click
 
-engine = create_engine('sqlite:////tmp/test.db')
+engine = create_engine('sqlite:///test.db')
 db_session = scoped_session(sessionmaker(
     autocommit=False,
     autoflush=False,
@@ -17,4 +17,5 @@ Base.query = db_session.query_property()
 def init_db():
     import myapplication.models
     Base.metadata.create_all(bind=engine)
+
 
