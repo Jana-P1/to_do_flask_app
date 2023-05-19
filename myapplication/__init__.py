@@ -33,11 +33,14 @@ def create_app(test_config=None):
         pass
 
     # a simple page that says hello
-    @app.route('/')
-    def index():
-        return render_template('index.html')
     
+    
+    # -------------- BLUEPRINTS ------------------
+    from myapplication.users.views import users
+    app.register_blueprint(users)
 
+    from myapplication.landing.views import landing
+    app.register_blueprint(landing)
    
     return app
 

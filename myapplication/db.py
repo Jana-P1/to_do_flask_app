@@ -15,7 +15,9 @@ Base.query = db_session.query_property()
 
 
 def init_db():
-    import myapplication.models
+    print("The Database")
+    from myapplication.models.models import User, ToDo
+    
     Base.metadata.create_all(bind=engine)
 
 

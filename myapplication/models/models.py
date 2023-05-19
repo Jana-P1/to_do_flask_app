@@ -8,7 +8,7 @@ class User(Base):
     username = Column(String(75), index=True)
     email = Column(String(100), index=True, unique=True)
     password_hash = Column(String(128))
-    posts = Column(Integer, ForeignKey("todos"))
+    posts = Column(Integer, ForeignKey("todos.id"))
 
     def __init__(self, username, email, password, posts):
         self.usernamne = username
@@ -26,9 +26,9 @@ class User(Base):
 class ToDo(Base):
     __tablename__ = "todos"
     id = Column(Integer, primary_key=True)
-    owner = Column(Integer, ForeignKey("user.id"), nullable=False)
+    owner = Column(Integer, ForeignKey("users.id"), nullable=False)
     description = Column(String(128), nullable=False)
-    date = Column(DateTime.date())
+    date = Column(DateTime())
 
     def __init__(self, owner, description, date):
         self.owner = owner
