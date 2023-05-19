@@ -10,3 +10,8 @@ users = Blueprint('users', __name__)
 @users.route('/signup', methods=["GET", "POST"])
 def signup():
     print("sign Up")
+
+@users.route('/login', methods=["GET", "POST"])
+def login():
+    print("login: Sanity Check")
+    return render_template("login.html")
