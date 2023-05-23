@@ -9,7 +9,30 @@ body {
   margin: 5px;
   padding: 5px;
 }
-
-span {
-  font-size: x-large;
+#auth {
+  max-height: fit-content;
+  max-width: fit-content;
+  margin: 0 auto;
+  padding: 10px;
+  justify-content: space-evenly;
 }
+.auth {
+  margin: 7px;
+}
+
+form {
+  margin: 10px;
+  padding: 10px;
+  height: 100vh;
+  max-width: fit-content;
+  
+}
+.form-group {
+  margin-bottom: 10px;
+}
+
+button {
+  margin: 10px;
+}
+
+

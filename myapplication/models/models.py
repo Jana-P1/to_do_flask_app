@@ -10,11 +10,10 @@ class User(Base):
     password_hash = Column(String(128))
     posts = Column(Integer, ForeignKey("todos.id"))
 
-    def __init__(self, username, email, password, posts):
+    def __init__(self, username, email, password):
         self.usernamne = username
         self.email = email
         self.password_hash = generate_password_hash(password)
-        self.posts = posts
 
     def verify_password(self, password):
         return check_password_hash(self.password_hash, password)
