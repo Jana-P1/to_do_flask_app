@@ -35,4 +35,12 @@ button {
   margin: 10px;
 }
 
+#authBtns {
+  justify-content: space-between;
+}
+
+a {
+  margin: 5px;
+}
+
 
