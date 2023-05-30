@@ -5,15 +5,13 @@
 <div class="login sign up">
   <form method="POST">
     <div class="form-group">
-      <label for="inputEmail">Email</label>
-      <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
-    </div>
-    <div class="form-group">
-      <label for="inputPassword1">Password</label>
-      <input type="password" class="form-control" placeholder="Enter password">
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
+      {{form.hidden_tag()}}
+      {{form.email.label(class="form-control-label")}}
+      {{form.email(class="form-control form-control-lg")}}<br>
+      {{form.password.label(class="form-control-label")}}
+      {{form.password(class="form-control form-control-lg")}}<br>
+      {{form.submit(class="btn btn-info")}}
+    </form>
 </div>
 
 {% endblock %}

@@ -3,8 +3,13 @@ from wtforms import StringField, BooleanField, validators, SubmitField, Password
 
 
 class RegistrationForm(FlaskForm):
-    username = StringField('Username', [validators.Length(min=4, max=25)])
+    username = StringField('Username', [validators.DataRequired()])
     email = StringField('Email')
     password = PasswordField('Password', [validators.DataRequired(), validators.EqualTo('confirm', message='Passwords must match')])
     confirm = PasswordField('Confirm Password', [validators.DataRequired()])
     submit = SubmitField('Register')
+
+class LoginForm(FlaskForm):
+    email = StringField('Email', [validators.DataRequired()])
+    password = PasswordField('Password', [validators.DataRequired()])
+    submit = SubmitField('Log In')
