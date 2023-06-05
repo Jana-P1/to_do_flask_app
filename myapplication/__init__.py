@@ -5,6 +5,7 @@ from . import db
 from myapplication.db import db_session, init_db
 
 
+
 def create_app(test_config=None):
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
@@ -18,6 +19,8 @@ def create_app(test_config=None):
         db_session.remove()
     
     init_db()
+    with app.app_context():
+        db.create_all()
 
     if test_config is None:
         # load the instance config, if it exists, when not testing

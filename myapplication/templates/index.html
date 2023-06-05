@@ -16,10 +16,17 @@
         Jana's To Do App
       </a>
       <i class="fa-solid fa-hand-spock fa-3x"></i>
+    
+      {% if username %}
+      <div id="welcome">
+        <h2>Welcome, {{user.username}}</h2>
+      </div>
+      {% else %}
       <div class="d-flex flex-row-reverse" id="authBtns">
         <a class="btn btn-primary" role="button" href="{{ url_for('users.signup') }}">SignUp</a>
         <a class="btn btn-light" role="button" href="{{ url_for('users.login') }}">Login</a>
       </div>
+      {% endif %}
     </div>
   </nav>
   

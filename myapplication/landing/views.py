@@ -1,5 +1,5 @@
 from flask import render_template, request, Blueprint
-from myapplication.models.models import ToDo
+from myapplication.models.models import ToDo, User
 
 landing = Blueprint('landing', __name__)
 

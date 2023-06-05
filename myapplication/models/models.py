@@ -2,10 +2,11 @@ from myapplication.db import Base, init_db
 from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
 from werkzeug.security import generate_password_hash, check_password_hash
 
+
 class User(Base):
     __tablename__ = 'users'
     id = Column(Integer, primary_key=True)
-    username = Column(String(75), index=True)
+    username = Column(String(75), index=True, unique=True)
     email = Column(String(100), index=True, unique=True)
     password_hash = Column(String(128))
     posts = Column(Integer, ForeignKey("todos.id"))
@@ -37,3 +38,6 @@ class ToDo(Base):
 
     def __repr__(self):
         return f'<ToDOs: Description: {self.description} -- Date: {self.date}>'
+
+
+
